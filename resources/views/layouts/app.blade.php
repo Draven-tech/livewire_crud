@@ -11,8 +11,28 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="mt-3">Simple Laravel CRUD Application Tutorial</h3>
-        @yield('content')
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse justify-content-end">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        @auth
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer;">Logout</button>
+                                </form>
+                            </li>
+                        @endauth
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h3 class="mt-3">Simple Laravel CRUD Application</h3>
+        @if (isset($slot))
+            {{ $slot }}
+        @else
+            @yield('content')
+        @endif
         <div class="row justify-content-center text-center mt-3">
             <div class="col-md-12">
                 <p>

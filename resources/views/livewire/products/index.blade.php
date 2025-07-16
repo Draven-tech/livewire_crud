@@ -1,7 +1,4 @@
 
-@extends('layouts.app')
-
-@section('content')
 <div>
     <div class="container mt-5">
         <h2 class="mb-4">Product Management</h2>
@@ -80,4 +77,3 @@
         </div>
     </div>
 </div>
-@endsection
